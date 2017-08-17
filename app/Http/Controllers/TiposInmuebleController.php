@@ -3,8 +3,8 @@
 /**
  * @Author: Roque
  * @Date:   2017-08-15 23:48:58
- * @Last Modified by:   Roque
- * @Last Modified time: 2017-08-15 23:50:35
+ * @Last Modified by:   Roque  Amilpa
+ * @Last Modified time: 2017-08-16 22:23:44
  */
 namespace App\Http\Controllers;
 
@@ -19,7 +19,10 @@ class TiposInmuebleController extends Controller
      */
     public function index()
     {
-        //
+         return response()->json([
+             'name' => 'Abigail',
+             'state' => 'CA'
+          ]);
         $tipos_inmueble = Tipos_inmueble::all();
         return response()->json($tipos_inmueble);
     }

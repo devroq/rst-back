@@ -14,8 +14,8 @@
 $app->get('/', function () use ($app) {
     return $app->version();
 });
-$app->group(['prefix' => 'tipos_inmueble/'], function ($app) {
-    $app->get('/','TiposInmuebleController@index'); //get all the routes	
+$app->group(['prefix' => 'api/'], function ($app) {
+    $app->get('tipos_inmueble/','TiposInmuebleController@index'); //get all the routes	
     $app->post('/','TipoTiposInmueblesInmuebleController@store'); //store single route
     $app->get('/{id}/', 'TiposInmuebleController@show'); //get single route
     $app->put('/{id}/','TiposInmuebleController@update'); //update single route
