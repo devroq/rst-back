@@ -19,10 +19,10 @@ class TiposInmuebleController extends Controller
      */
     public function index()
     {
-         return response()->json([
-             'name' => 'Abigail',
-             'state' => 'CA'
-          ]);
+        return response()->json([
+            'id' => 1,
+            'nombre' => 'Conexion Exitosa con Lumen'
+        ]);
         $tipos_inmueble = Tipos_inmueble::all();
         return response()->json($tipos_inmueble);
     }
@@ -36,9 +36,9 @@ class TiposInmuebleController extends Controller
     public function show($id)
     {
         //
-        $book = Books::where('id', $id)->get();
-        if(!empty($book['items'])){
-            return response()->json($book);
+        $tipo_inmueble = Tipos_inmueble::where('id', $id)->get();
+        if(!empty($tipos_inmueble['items'])){
+            return response()->json($tipos_inmueble);
         }
         else{
             return response()->json(['status' => 'fail']);
@@ -55,19 +55,11 @@ class TiposInmuebleController extends Controller
     {
         //
         $this->validate($request, [
-        'name' => 'required',
-        'description' => 'required',
-        'category' => 'required',
-        'published_on' => 'required'
+            'nombre' => 'required'
          ]);
 
-        $book = new Books();
-        $book->name = $request->name;
-        $book->description = $request->description;
-        $book->category = $request->category;
-        $date = new \DateTime($request->published_on);
-        $dd = $date->format('Y-m-d');
-        $book->published_on = $dd; 
+        $tipo_inmueble = new Tipos_inmueble();
+        $tipo_inmueble->nombre = $request->nombre;                
         $book->save();
         return response()->json(['status' => 'success']);
         
@@ -84,20 +76,12 @@ class TiposInmuebleController extends Controller
     {
         //
         $this->validate($request, [
-        'name' => 'required',
-        'description' => 'required',
-        'category' => 'required',
-        'published_on' => 'required'
-         ]);
+            'nombre' => 'required'
+        ]);
 
-        $book = Books::find($id);
-        $book->name = $request->name;
-        $book->description = $request->description;
-        $book->category = $request->category;
-        $date = new \DateTime($request->published_on);
-        $dd = $date->format('Y-m-d');
-        $book->published_on = $dd; 
-        $book->save();
+        $tipo_inmueble = Tipos_inmueble::find($id);
+        $tipo_inmueble->nombre = $request->nombre;    
+        $tipo_inmueble->save();
         return response()->json(['status' => 'success']);
     }
 
@@ -105,13 +89,12 @@ class TiposInmuebleController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response     
      */
     public function destroy($id)
     {
-        //
-        if(Books::destroy($id)){
-             return response()->json(['status' => 'success']);
+        if(Tipos_inmueble::destroy($id)){
+            return response()->json(['status' => 'success']);
         }
     }
 }
