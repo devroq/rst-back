@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @Author: Roque
  * @Date:   2017-08-15 23:48:58
@@ -19,8 +18,7 @@ class TiposInmuebleController extends Controller
      */
     public function index()
     {
-        $tipos_inmueble = Tipo_inmueble::all();
-        return response()->json($tipos_inmueble);
+        return response()->json(Tipo_inmueble::all());                
     }
 
     /**

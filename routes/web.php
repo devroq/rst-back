@@ -15,10 +15,10 @@ $app->get('/', function () use ($app) {
     return $app->version();
 });
 //Tipos de inmueble
-$app->group(['prefix' => 'api/'], function ($app) {
-    $app->get('tipos_inmueble/','TiposInmuebleController@index');//get all the routes	
-    $app->post('tipos_inmueble/','TipoTiposInmueblesInmuebleController@store');//store single route
-    $app->get('tipos_inmueble/{id}/', 'TiposInmuebleController@show');//get single route
-    $app->put('tipos_inmueble/{id}/','TiposInmuebleController@update');//update single route
-    $app->delete('tipos_inmueble/{id}/','TiposInmuebleController@destroy');//delete singleTiposInmueblee
+$app->group(['prefix' => 'api/tipos_inmueble'], function ($app) {
+    $app->get('/','TiposInmuebleController@index');//get all the tipos_inmueble	
+    $app->post('/','TiposInmuebleController@store');//store single route
+    $app->get('/{id}/', 'TiposInmuebleController@show');//get single route
+    $app->put('/{id}/','TiposInmuebleController@update');//update single route
+    $app->delete('/{id}/','TiposInmuebleController@destroy');//delete singleTiposInmueblee
 });
