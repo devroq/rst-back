@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tipo_inmueble extends Model
 {
+	protected $table = 'tipos_inmueble';
     protected $fillable = ['id','nombre'];
 }
 ?>

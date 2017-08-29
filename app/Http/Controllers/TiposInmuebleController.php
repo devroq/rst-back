@@ -9,7 +9,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Tipos_inmueble;
+use App\Tipo_inmueble;
 class TiposInmuebleController extends Controller
 {
     /**
@@ -19,11 +19,7 @@ class TiposInmuebleController extends Controller
      */
     public function index()
     {
-        return response()->json([
-            'id' => 1,
-            'nombre' => 'Conexion Exitosa con Lumen'
-        ]);
-        $tipos_inmueble = Tipos_inmueble::all();
+        $tipos_inmueble = Tipo_inmueble::all();
         return response()->json($tipos_inmueble);
     }
 
