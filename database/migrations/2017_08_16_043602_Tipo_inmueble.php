@@ -15,9 +15,13 @@ class TipoInmueble extends Migration
     {
         Schema::create('tipos_inmueble', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
+            $table->string('nombre',30);
         });
-
+        \DB::table('tipos_inmueble')->insert([
+                ["id" => 1 ,"nombre" => "Casa"],
+                ["id" => 2 ,"nombre" => "Departamento"],
+                ["id" => 3 ,"nombre" => "Terreno"]
+            ]);
     }
 
     /**
