@@ -18,8 +18,12 @@ class TiposInmuebleController extends Controller
      */
     public function index()
     {
-        $tipos_inmueble = Tipo_inmueble::all()->toArray(); 
-        return response()->json($tipos_inmueble);                
+        $rs = array(
+            "status" =>200,
+            "ok" => true,
+            "data" => Tipo_inmueble::all()->toArray()
+        ); 
+        return response()->json($rs);                
     }
 
     /**
